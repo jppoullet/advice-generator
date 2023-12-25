@@ -63,16 +63,23 @@
   width: 60px;
   height: 60px;
   border-radius: 50px;
+  border: none;
   position: absolute;
   bottom: -30px;
 }
 
-.quote-generator-btn:hover {
+/* .quote-generator-btn:hover {
   box-shadow: 0 0 25px var(--secondary-font);
-}
+} */
 
-.quote-generator-btn:active {
+/* .quote-generator-btn:active {
   background-color: var(--primary-font);
   box-shadow: 0 0 25px var(--secondary-font);
   transform: translateY(2px);
+} */
+
+@media screen and (min-width: 500px) {
+  .quote-generator-btn:hover {
+    box-shadow: 0 0 25px var(--secondary-font);
+  }
 }
