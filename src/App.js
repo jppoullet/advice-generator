@@ -16,7 +16,6 @@ function App() {
     getAdviceData();
   }, []);
 
-  //comment here
   return (
     <div className="App">
       <div className="quote-container">
