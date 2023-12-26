@@ -4,25 +4,17 @@ import dice from "./advice-generator-app-main/images/icon-dice.svg";
 import { useEffect, useState } from "react";
 
 function App() {
-  const quoteGeneratorHandler = () => {
-    fetchData();
-  };
-
   const [advice, setAdvice] = useState();
 
-  useEffect(() => {
-    if (advice === undefined) {
-      fetchData();
-    }
-
-    console.log(advice);
-  });
-
-  const fetchData = async () => {
+  const getAdviceData = async () => {
     const response = await fetch("https://api.adviceslip.com/advice");
     const newData = await response.json();
     setAdvice(newData);
   };
+
+  useEffect(() => {
+    getAdviceData();
+  }, []);
 
   return (
     <div className="App">
@@ -30,9 +22,9 @@ function App() {
         <div className="advice-number">#123</div>
         {advice && <div className="quote"> {advice.slip.advice} </div>}
         <img src={pageBreak} className="page-break"></img>
-        <div className="quote-generator-btn" onClick={quoteGeneratorHandler}>
+        <button className="quote-generator-btn" onClick={getAdviceData}>
           <img src={dice}></img>
-        </div>
+        </button>
       </div>
     </div>
   );
